@@ -2,7 +2,7 @@ Included project is for capstone presentation spring 2018 Southeast Technical In
 
 ASP.NET , VS2017, C#, MVC, MS SQL Server, HTML, CSS
 
-The web app will provide auto mechanics with means to manage parts inventory, billing, services, schedules, and customers.
+The web app will provide auto mechanics with means to manage parts inventory, billing, schedule, and customers.
 
 1/30/2018- Initial Upload. Initial domain model created. Database created and queries succesful.
 
