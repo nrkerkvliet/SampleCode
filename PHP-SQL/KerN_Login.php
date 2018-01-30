@@ -36,7 +36,7 @@ print("query \"$query\" successful!<br /><br />");
 if ($result->num_rows==0) {
     print('Invalid login credentials');
 	print("<br>");
-	print('<a href="http://nrkerkvliet.000webhostapp.com/KerN_Apache1/KerN_Unit4_Ex3/KerN_Registration.html">Click here to return</a>');
+	print('<a href="link to remote host login page--removed">Click here to return</a>');
 }
 
 while($row = $result->fetch_assoc()){
