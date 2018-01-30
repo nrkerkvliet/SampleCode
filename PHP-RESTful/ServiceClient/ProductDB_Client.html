@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>RESTful JSON-PHP Web Service Client</title>
+ </head>
+<body>
+<h2>
+Please enter Product name to search for in Database Emulator
+
+<p>
+		<form id="target" action="" method="post">
+			Product: <input type="text" id="productName" name ="productName">&nbsp
+			<input type="submit" value="Submit">
+		</form>
+	</p>
+	<br />
+
+-----------------------------------------------------------------------------	
+	<br /><br />
+
+Product information returned from Database Emulator web service:
+	<p>
+		Product Information: <span id="aProduct"></span>
+		<br />
+		Product Code: <span id="aCode"></span>
+		<br />
+		Product Description: <span id="aDescription"></span>
+		<br />
+		Product Price: <span id="aPrice"></span>
+	</p>
+	 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+
+<script>
+
+$('#target').submit(function(event) {
+
+//alert("inside JS function");
+
+	event.preventDefault();
+	
+	var aProduct = $('#productName').val();
+					
+	$.ajax({
+		type: 'POST',
+		url: 'http://localhost:8000/CIS266/RESTful/unit1_ex3/ServiceProvider/ProductDB_API.php',
+		data: 'product=' + aProduct, 
+		dataType: 'json',
+		encode: true
+	})
+	.done(function(data) {
+		$('#aProduct').text(data.productString);
+		$('#aCode').text(data.productCode);
+		$('#aDescription').text(data.productDescription);
+		$('#aPrice').text(data.productPrice);
+	})
+	.fail(function() {
+		$('#result').text('An error occurred. Please contact your Web Service Administrator.');
+	});
+
+	});
+
+</script>
+</body>
+</html>
