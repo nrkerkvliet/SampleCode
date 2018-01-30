@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+	<title>Nathan Kerkvliet Registration</title>
+	<meta charset = "utf-8" />
+	<script src="KerN_Registration.js"></script>
+</head>
+
+<body>
+	<h3>Nathan Kerkvliet - User Registration</h3>
+
+	<form onSubmit="return validateForm()" action="KerN_Login.php" method="post">
+		UserName:          <input type="text" id="userEntry" name="userEntry">	<div id="nameValid">(Guests use Guest)</div>	<br>
+		Password:          <input type="text" id="password" name="password">	<div id="passValid">(Guests use Guest)</div>	<br>
+		<input type="submit" id="btnSub" name="btnSub" /> <br>
+	</form>
+	<div id="results"></div>
+</body>
+
+</html>
