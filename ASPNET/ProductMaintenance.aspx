@@ -6,7 +6,7 @@
 
         <%-- Products GridView --%>
         <div class="col-sm-12 table-responsive">
-            <!-- GridView control can go here -->
+
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductCode" DataSourceID="SqlDataSource1" CssClass="table table-bordered table-condensed table-hover" OnPreRender="GridView1_PreRender" OnRowDeleted="GridView1_RowDeleted" OnRowUpdated="GridView1_RowUpdated">
                 <Columns>
                     <asp:BoundField DataField="ProductCode" HeaderText="Product Code" SortExpression="ProductCode" ReadOnly="True">
