@@ -45,5 +45,49 @@ namespace a_01_carApp.Controllers
             return View(account);
         }
 
+        [HttpGet]
+        public ActionResult EditAccount(string Id)
+        {
+            Account account = new Account();
+            AccountsDataAccess access = new AccountsDataAccess();
+            return View(access.SelectDataById(Id));
+        }
+
+        [HttpPost]
+        public ActionResult EditAccount(Account account)
+        {
+            if (ModelState.IsValid)
+            {
+                AccountsDataAccess access = new AccountsDataAccess();
+                string result = access.UpdateData(account);
+                ViewData["result"] = result;
+                ModelState.Clear();
+                return View();
+            }
+            else
+            {
+                ModelState.AddModelError("", "Error in saving data");
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult DeleteAccount(string Id)
+        {
+            Account account = new Account();
+            AccountsDataAccess accesss = new AccountsDataAccess();
+            return View(accesss.SelectDataById(Id));
+        }
+
+        [HttpPost]
+        public ActionResult DeleteAccount(Account account)
+        {
+            AccountsDataAccess access= new AccountsDataAccess();
+            string result = access.DeleteData(account);
+            ViewData["result"] = result;
+            ModelState.Clear();
+            return View();
+        }
+
     }
 }
