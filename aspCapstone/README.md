@@ -17,3 +17,6 @@ Added data annotations to Models
 Created controller methods for insert and select all queries using HttpGet and HttpPost
 
 Created views associated with controller methods insert and select all
+
+
+1/31/2018 - Created controller methods and associated views for accounts edit and delete.
