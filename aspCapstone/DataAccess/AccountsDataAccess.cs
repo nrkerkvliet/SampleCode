@@ -160,7 +160,7 @@ namespace a_01_carApp.DataAccess
                     account = new Account();
                     account.Id = Convert.ToInt32(ds.Tables[0].Rows[i]["Id"].ToString());
                     account.FName = ds.Tables[0].Rows[i]["FName"].ToString();
-                    account.LName = ds.Tables[0].Rows[i]["LastName"].ToString();
+                    account.LName = ds.Tables[0].Rows[i]["LName"].ToString();
                 }
                 return account;
             }
