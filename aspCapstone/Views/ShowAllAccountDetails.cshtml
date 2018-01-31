@@ -13,7 +13,7 @@
 </head>
 <body>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Create New", "InsertAccount")
     </p>
     <table class="table">
         <tr>
@@ -35,9 +35,9 @@
                 @Html.DisplayFor(modelItem => item.LName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                @Html.ActionLink("Edit", "EditAccount", new { id=item.Id }) |
+                @Html.ActionLink("Details", "", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "DeleteAccount", new { id=item.Id })
             </td>
         </tr>
     }
