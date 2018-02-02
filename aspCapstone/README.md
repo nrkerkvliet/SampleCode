@@ -4,19 +4,15 @@ ASP.NET , VS2017, C#, MVC, MS SQL Server, HTML, CSS
 
 The web app will provide auto mechanics with means to manage parts inventory, billing, schedule, and customers.
 
-1/30/2018- Initial Upload. Initial domain model created. Database created and queries succesful.
 
-Set up temporary page with GridView Control to display database query.
 
-Began database access layer logic for CRUD operations.
+I have been working on this project on and off.  In terms of documenting work I'm just going to start documenting from where I am.
 
-Created stored procedure in database for CRUD operations.
 
-Added data annotations to Models
-
-Created controller methods for insert and select all queries using HttpGet and HttpPost
-
-Created views associated with controller methods insert and select all
+1/30/2018- Initial Upload, Created Initial models, controllers, and views to handle customer accounts.  Basic CRUD operations functional using DataAccess class and Stored Procedure set up in SQL Server
 
 
 1/31/2018 - Created controller methods and associated views for accounts edit and delete.
+
+
+2/2/2018 - Added more properties to Account class.  Modified views to display more properties.  Modified DataAccess and SQL Stored Proc to handle the extra properties.  Added a master layout page.  Cleaned up UI.  Added some validation to views for HttpPost actions.
