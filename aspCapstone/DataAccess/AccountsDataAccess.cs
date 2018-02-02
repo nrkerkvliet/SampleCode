@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages;
 using a_01_carApp.Models;
 
 namespace a_01_carApp.DataAccess
@@ -22,6 +23,8 @@ namespace a_01_carApp.DataAccess
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@FName", account.FName);
                 cmd.Parameters.AddWithValue("@LName", account.LName);
+                cmd.Parameters.Add("@DOB", SqlDbType.Date).Value = account.DOB.Date;
+                cmd.Parameters.AddWithValue("@Address", account.Address);
                 cmd.Parameters.AddWithValue("@Query", 1);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
@@ -50,6 +53,8 @@ namespace a_01_carApp.DataAccess
                 cmd.Parameters.AddWithValue("@Id", account.Id);
                 cmd.Parameters.AddWithValue("@FName", account.FName);
                 cmd.Parameters.AddWithValue("@LName", account.LName);
+                cmd.Parameters.Add("@DOB", SqlDbType.Date).Value = account.DOB.Date;
+                cmd.Parameters.AddWithValue("@Address", account.Address);
                 cmd.Parameters.AddWithValue("@Query", 2);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
@@ -78,6 +83,8 @@ namespace a_01_carApp.DataAccess
                 cmd.Parameters.AddWithValue("@Id", account.Id);
                 cmd.Parameters.AddWithValue("@FName", account.FName);
                 cmd.Parameters.AddWithValue("@LName", account.LName);
+                cmd.Parameters.Add("@DOB", SqlDbType.Date).Value = account.DOB.Date;
+                cmd.Parameters.AddWithValue("@Address", account.Address);
                 cmd.Parameters.AddWithValue("@Query", 3);
                 con.Open();
                 result = cmd.ExecuteScalar().ToString();
@@ -107,6 +114,8 @@ namespace a_01_carApp.DataAccess
                 cmd.Parameters.AddWithValue("@Id", null);
                 cmd.Parameters.AddWithValue("@FName", null);
                 cmd.Parameters.AddWithValue("@LName", null);
+                cmd.Parameters.AddWithValue("@DOB", null);
+                cmd.Parameters.AddWithValue("@Address", null);
                 cmd.Parameters.AddWithValue("@Query", 4);
                 con.Open();
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -120,9 +129,12 @@ namespace a_01_carApp.DataAccess
                     account.Id = Convert.ToInt32(ds.Tables[0].Rows[i]["Id"].ToString());
                     account.FName = ds.Tables[0].Rows[i]["FName"].ToString();
                     account.LName = ds.Tables[0].Rows[i]["LName"].ToString();
-                    
+                    account.DOB = ds.Tables[0].Rows[i]["DOB"].ToString().AsDateTime();
+                    account.Address = ds.Tables[0].Rows[i]["Address"].ToString();
+
                     accountList.Add(account);
                 }
+                accountList= accountList.OrderBy(a => a.LName).ToList();
                 return accountList;
             }
             catch
@@ -148,6 +160,8 @@ namespace a_01_carApp.DataAccess
                 cmd.Parameters.AddWithValue("@Id", AccountId);
                 cmd.Parameters.AddWithValue("@FName", null);
                 cmd.Parameters.AddWithValue("@LName", null);
+                cmd.Parameters.AddWithValue("@DOB", null);
+                cmd.Parameters.AddWithValue("@Address", null);
                 cmd.Parameters.AddWithValue("@Query", 5);
           
                 SqlDataAdapter da = new SqlDataAdapter();
@@ -161,6 +175,8 @@ namespace a_01_carApp.DataAccess
                     account.Id = Convert.ToInt32(ds.Tables[0].Rows[i]["Id"].ToString());
                     account.FName = ds.Tables[0].Rows[i]["FName"].ToString();
                     account.LName = ds.Tables[0].Rows[i]["LName"].ToString();
+                    account.DOB = ds.Tables[0].Rows[i]["DOB"].ToString().AsDateTime();
+                    account.Address = ds.Tables[0].Rows[i]["Address"].ToString();
                 }
                 return account;
             }
