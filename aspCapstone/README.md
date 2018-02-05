@@ -16,3 +16,5 @@ I have been working on this project on and off.  In terms of documenting work I'
 
 
 2/2/2018 - Added more properties to Account class.  Modified views to display more properties.  Modified DataAccess and SQL Stored Proc to handle the extra properties.  Added a master layout page.  Cleaned up UI.  Added some validation to views for HttpPost actions.
+
+2/4/2018 - Began similar project using entity framework over the weekend.  Upload needed.. brain hurts...sleep...
