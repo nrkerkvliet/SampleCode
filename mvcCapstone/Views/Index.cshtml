@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+
+        $("#btnCreate").click(function () {
+            var objInvoice = {};
+            objInvoice.Details = $("#txtDetails").val();
+            objInvoice.DateBilled = $("#txtDateBilled").val();
+            objInvoice.PaymentDateReceived = $("#txtPaymentDateReceived").val();
+            objInvoice.PaymentDateDue = $("#txtPaymentDateDue").val();
+            objInvoice.InvoiceNumber = $("#txtInvoiceNumber").val();
+            objInvoice.InvoiceGross = $("#txtInvoiceGross").val();
+            objInvoice.CreditTotal = $("#txtCreditTotal").val();
+            objInvoice.TaxTotal = $("#txtTaxTotal").val();
+            objInvoice.PaymentReceived = $("#txtPaymentReceived").val();
+            objInvoice.CustomerId = $("#txtCustomerId").val();
+            $.post("/Invoices/InsertInvoice",
+                { objInvoice: objInvoice },
+                function(data) {
+                    if (data != null) {
+                        alert("Invoice Created");
+                        location.reload();
+                    } else {
+                        alert("Error in creating Invoice");
+                    }
+                });
+        })
+    </script>
+}
+
+
+
+
+
+
+
+
+<h1>Index</h1>
+
+<div id="CreateInvoice" class="form-horizontal">
+    <h4>New Invoice</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Details</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtDetails" id="txtDetails" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Date Billed</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtDateBilled" id="txtDateBilled" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Payment Date Received</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtPaymentDateReceived" id="txtPaymentDateReceived" />
+        </div>
+    </div>
+        
+    <!-- my duct tape for not implementing a VehicleMake insert method if !exists  -->
+    <div class="form-group">
+        <label class="control-label col-md-2">Payment Date Due</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtPaymentDateDue" id="txtPaymentDateDue" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Invoice Number</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtInvoiceNumber" id="txtInvoiceNumber" />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label col-md-2">InvoiceGross</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtInvoiceGross" id="txtInvoiceGross" />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label col-md-2">Credit Total</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtCreditTotal" id="txtCreditTotal" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Tax Total</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtTaxtotal" id="txtTaxTotal" />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label col-md-2">Payment Received</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtPaymentReceived" id="txtPaymentReceived" />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label class="control-label col-md-2">Customer Id</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" name="txtCustomerId" id="txtCustomerId" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" id="btnCreate" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+
+
+<h2>Show All Invoices</h2>
+@{ Html.RenderAction("ShowAllInvoices", "Invoices"); }

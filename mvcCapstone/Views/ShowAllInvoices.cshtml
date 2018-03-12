@@ -1,0 +1,57 @@
+﻿@model a_01_carApp.Models.Invoices.Invoice
+
+<div>
+    <h4>Invoice</h4>
+    <hr />
+<ul>
+    @foreach (var item in Model.ShowAllInvoices)
+    {
+        <li> @Html.LabelFor(modelItem => item.Id)</li>
+        <li> @Html.DisplayFor(modelItem => item.Id)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.Details)</li>
+        <li> @Html.DisplayFor(modelItem => item.Details)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.CreditTotal)</li>
+        <li> @Html.DisplayFor(modelItem => item.CreditTotal)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.CustomerId)</li>
+        <li> @Html.DisplayFor(modelItem => item.CustomerId)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.DateBilled)</li>
+        <li> @Html.DisplayFor(modelItem => item.DateBilled)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.InvoiceGross)</li>
+        <li> @Html.DisplayFor(modelItem => item.InvoiceGross)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.InvoiceNumber)</li>
+        <li> @Html.DisplayFor(modelItem => item.InvoiceNumber)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.PaymentDateDue)</li>
+        <li> @Html.DisplayFor(modelItem => item.PaymentDateDue)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.PaymentDateReceived)</li>
+        <li> @Html.DisplayFor(modelItem => item.PaymentDateReceived)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.PaymentReceived)</li>
+        <li> @Html.DisplayFor(modelItem => item.PaymentReceived)</li>
+
+
+        <li> @Html.LabelFor(modelItem => item.TaxTotal)</li>
+        <li> @Html.DisplayFor(modelItem => item.TaxTotal)</li>
+
+
+
+
+    }
+</ul>
+</div>
