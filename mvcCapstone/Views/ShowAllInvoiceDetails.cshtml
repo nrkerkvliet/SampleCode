@@ -1,0 +1,59 @@
+﻿@model a_01_carApp.Models.Invoice
+
+@{
+    ViewBag.Title = "ShowAllInvoiceDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowAllInvoiceDetails</h2>
+
+<p>
+    @Html.ActionLink("Create New", "InsertInvoice")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HoursWorked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NetTotal)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ShowAllInvoices)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoursWorked)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetTotal)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditInvoice", new { id = item.Id }) |
+                @Html.ActionLink("Details", "ShowInvoiceDetails", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteInvoice", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
