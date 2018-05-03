@@ -1,5 +1,5 @@
 Included project is for capstone presentation spring 2018 Southeast Technical Institute
 
-ASP.NET , VS2017, C#, MVC, MS SQL Server, HTML, CSS, JavaScript, JQuery, AJAX
+ASP.NET , VS2017, C#, MVC, MS SQL Server, HTML, CSS, JavaScript, JQuery
 
-The web app will provide auto mechanics with means to manage parts inventory, billing, schedule, and customers.
+The web app will provide auto mechanics with means to manage customers, invoice, and maintenance documentation
